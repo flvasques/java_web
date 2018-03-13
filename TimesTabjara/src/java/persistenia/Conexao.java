@@ -19,9 +19,11 @@ public class Conexao {
             Class.forName("org.postgresql.Driver");
             return DriverManager.getConnection(url, user, password);
         } catch (SQLException ex) {
+            Log.salvaLog("Falha na conexão " + Conexao.class.getName() + ": " + ex.toString());
             System.out.println("Falha na conexão");
             Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
+            Log.salvaLog("Falha na conexão " + Conexao.class.getName() + ": " + ex.toString());
             Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;

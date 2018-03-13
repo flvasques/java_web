@@ -31,6 +31,7 @@ public class TimeDao implements IDAO<Time>{
             }
 
         } catch (SQLException ex) {
+            Log.salvaLog(TimeDao.class.getName() + ": " + ex.toString());
             Logger.getLogger(TimeDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -49,6 +50,7 @@ public class TimeDao implements IDAO<Time>{
             connection.close();
 
         } catch (SQLException ex) {
+            Log.salvaLog(TimeDao.class.getName() + ": " + ex.toString());
             Logger.getLogger(TimeDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -82,6 +84,7 @@ public class TimeDao implements IDAO<Time>{
             connection.close();
 
         } catch (SQLException ex) {
+            Log.salvaLog(TimeDao.class.getName() + ": " + ex.toString());
             Logger.getLogger(TimeDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -103,6 +106,7 @@ public class TimeDao implements IDAO<Time>{
 
             }
         } catch (SQLException ex) {
+            Log.salvaLog(TimeDao.class.getName() + ": " + ex.toString());
             Logger.getLogger(TimeDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 

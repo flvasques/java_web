@@ -15,7 +15,21 @@
     </head>
     <body>
         <header class="well col-md-12 col-sm-12">
-            <h1 class="col-md-offset-4 col-sm-offset-4">Elifoot Tabajara A Emossão do Futebol</h1>
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                <!-- Brand/logo -->
+                <a class="navbar-brand" href="#">
+                    <p>Elifoot Tabajara A Emossão</p>
+                </a>
+                <!-- Links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.jsp">Times</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./jogadores.jsp">Jogadores</a>
+                    </li>
+                </ul>
+            </nav>
             <br><br>
         </header>
 </html>

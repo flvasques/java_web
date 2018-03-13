@@ -15,9 +15,9 @@ import persistenia.TimeDao;
  * @author Fernando Vasques
  */
 public class Time {
-    private int id;
-    private String nome;
-    private ArrayList<Jogador> jogadores;
+    private int id = 0;
+    private String nome = "";
+    private ArrayList<Jogador> jogadores = new ArrayList<Jogador>();
 
     public int getId() {
         return id;
@@ -48,11 +48,12 @@ public class Time {
         return service.listar();
     }
     
-    public static Time carregar(int id){
+    public void carregar(int id){
        IDAO service = new TimeDao();
        Time retorno = (Time)service.carregar(id);
-       retorno.listarJogadores();
-       return retorno;
+       this.id = retorno.getId();
+       this.nome = retorno.getNome();
+       listarJogadores();
     }
     
     public void inserir(){
@@ -65,8 +66,17 @@ public class Time {
         service.atualizar(this);
     }
     
+    public void salvar(){
+        if(this.id > 0){
+            this.inserir();
+        }else{
+            this.atulizar();
+        }
+    }
+    
     public void Excluir(){
         IDAO service = new TimeDao();
+        Jogador.excluirPorTime(this.id);
         service.excluir(this.id);
     }
     

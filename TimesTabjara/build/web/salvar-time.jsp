@@ -9,7 +9,8 @@
 <!DOCTYPE html>
 <%
   Time time  = new Time();
+  time.setId(Integer.parseInt(request.getParameter("id")));
   time.setNome(request.getParameter("nome"));
-  time.inserir();
+  time.salvar();
   response.sendRedirect("./index.jsp");
 %>

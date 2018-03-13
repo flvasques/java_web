@@ -29,7 +29,7 @@
                 <tr>
                     <td><%=t.getNome()%></td>
                     <td>
-                        <a href="?id=<%=t.getId()%>" class="btn btn-warning">Editar</a>
+                        <a href="./novo.jsp?id=<%=t.getId()%>" class="btn btn-warning">Editar</a>
                         <a href="./Excluir.jsp?id=<%=t.getId()%>" class="btn btn-danger">Excluir</a>
                     </td>  
                 </tr>

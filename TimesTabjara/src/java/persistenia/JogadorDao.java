@@ -31,7 +31,8 @@ public class JogadorDao implements IDAO<Jogador> {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(TimeDao.class.getName()).log(Level.SEVERE, null, ex);
+            Log.salvaLog(JogadorDao.class.getName() + ": " + ex.toString());
+            Logger.getLogger(JogadorDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return entidade;
@@ -51,7 +52,8 @@ public class JogadorDao implements IDAO<Jogador> {
             connection.close();
 
         } catch (SQLException ex) {
-            Logger.getLogger(TimeDao.class.getName()).log(Level.SEVERE, null, ex);
+            Log.salvaLog(JogadorDao.class.getName() + ": " + ex.toString());
+            Logger.getLogger(JogadorDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -67,7 +69,23 @@ public class JogadorDao implements IDAO<Jogador> {
             preparedStatement.close();
             connection.close();
         } catch (SQLException ex) {
-            Logger.getLogger(TimeDao.class.getName()).log(Level.SEVERE, null, ex);
+            Log.salvaLog(JogadorDao.class.getName() + ": " + ex.toString());
+            Logger.getLogger(JogadorDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void excluirPorTime(int id){
+        String sql = "DELETE FROM jogador WHERE id_time = ?;";
+        try {
+            Connection connection = new Conexao().getConexao();
+            PreparedStatement preparedStatement;
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException ex) {
+            Log.salvaLog(JogadorDao.class.getName() + ": " + ex.toString());
+            Logger.getLogger(JogadorDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -85,13 +103,14 @@ public class JogadorDao implements IDAO<Jogador> {
             connection.close();
 
         } catch (SQLException ex) {
-            Logger.getLogger(TimeDao.class.getName()).log(Level.SEVERE, null, ex);
+            Log.salvaLog(JogadorDao.class.getName() + ": " + ex.toString());
+            Logger.getLogger(JogadorDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @Override
     public ArrayList<Jogador> listar() {
-        String sql = "SELECT * FROM jogador WHERE id = ?;";
+        String sql = "SELECT * FROM jogador;";
         ArrayList<Jogador> lista = new ArrayList<>();
         try {
             Connection connection = new Conexao().getConexao();
@@ -106,14 +125,15 @@ public class JogadorDao implements IDAO<Jogador> {
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(TimeDao.class.getName()).log(Level.SEVERE, null, ex);
+            Log.salvaLog(JogadorDao.class.getName() + ": " + ex.toString());
+            Logger.getLogger(JogadorDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return lista;
     }
     
     public ArrayList<Jogador> listar(int id) {
-        String sql = "SELECT * FROM jogador;";
+        String sql = "SELECT * FROM jogador WHERE id_time = ?;";
         ArrayList<Jogador> lista = new ArrayList<>();
         try {
             Connection connection = new Conexao().getConexao();
@@ -129,7 +149,8 @@ public class JogadorDao implements IDAO<Jogador> {
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(TimeDao.class.getName()).log(Level.SEVERE, null, ex);
+            Log.salvaLog(JogadorDao.class.getName() + ": " + ex.toString());
+            Logger.getLogger(JogadorDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return lista;
