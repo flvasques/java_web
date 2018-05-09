@@ -13,7 +13,8 @@ public class Conexao {
         String port = "5432";
         String dbname = "escola";
         String user = "postgres";
-        String password = "a";//"postgres";
+        //String password = "a";
+        String password = "postgres";
         String url = "jdbc:postgresql://"+host+":"+port+"/"+dbname;
         try {
             Class.forName("org.postgresql.Driver");

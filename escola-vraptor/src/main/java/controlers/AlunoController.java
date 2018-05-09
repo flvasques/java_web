@@ -27,7 +27,7 @@ public class AlunoController {
     }
    
    @Get
-   @Path("/aluno/editar/{Aluno.matricula}")
+   @Path("/aluno/editar/{matricula}")
    public Aluno editar(int matricula){
        return new Aluno();
    }

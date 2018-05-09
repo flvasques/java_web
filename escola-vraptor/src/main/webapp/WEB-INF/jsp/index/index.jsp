@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <jsp:include page="../cabecalho.jsp"></jsp:include>
        <section class="container-fluid col-md-offset-1 col-md-12 col-sm-12">
@@ -11,11 +12,11 @@
                     <th>Nome</th>
                     <th>Ações</th>
                 </tr>
-                <c:forEach var="aluno" items="${alunosList}">
+                <c:forEach var="aluno" items="${alunoList}">
                     <tr>
                         <td>${aluno.getMatricula()}</td>
                         <td>${aluno.getNome()}</td>
-                        <td><a href="${linkTo[AlunoController].editar(aluno.matricula)}" class="btn btn-warning">Editar</a></td>
+                        <td><a href="${linkTo[AlunoController].editar(aluno.getMatricula())}" class="btn btn-warning">Editar</a></td>
                     </tr>
                 </c:forEach>
             </table>

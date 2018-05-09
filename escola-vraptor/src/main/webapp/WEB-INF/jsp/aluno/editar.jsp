@@ -9,7 +9,7 @@
     <!DOCTYPE html>
     <jsp:include page="../cabecalho.jsp"></jsp:include>
     <section class="container-fluid col-md-offset-1 col-md-12 col-sm-12">
-        <a href="./index.jsp" class="btn btn-primary"> Voltar</a>
+        <a href="${linkTo[IndexController].index()}" class="btn btn-primary"> Voltar</a>
         <hr />
             <div class="well col-md-12 col-sm-12">
                 <p class="col-md-offset-4 col-sm-offset-4">

@@ -11,7 +11,6 @@ import modelo.Aluno;
 
 @Controller
 public class IndexController {
-
 	@Path("/")
 	public List<Aluno> index() { 
             ArrayList<Aluno> retorno = Aluno.listar();
