@@ -20,6 +20,11 @@ public class Aluno {
         this.matricula = 0;
         this.nome = "";
     }
+    public Aluno(int matricula){
+        Aluno a = new AlunoDao().carregar(matricula);
+        this.matricula = a.getMatricula();
+        this.nome = a.getNome();
+    }
 
     public int getMatricula() {
         return matricula;
@@ -48,5 +53,13 @@ public class Aluno {
     
     public static ArrayList<Aluno> listar(){
         return new AlunoDao().listar();
+    }
+    
+    public void carregar(){
+        Aluno a = new AlunoDao().carregar(matricula);
+        this.nome = a.getNome();
+    }
+    public void apagar(){
+        new AlunoDao().excluir(this.matricula);
     }
 }

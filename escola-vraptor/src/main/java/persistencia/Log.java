@@ -17,13 +17,14 @@ public class Log {
         DateTimeFormatter forma = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         s = dth.format(forma) + " => " + s + ".";
         try {  	
-            BufferedWriter arquivo = new BufferedWriter (new FileWriter(new File("/home/aluno/LogErro.txt"),true));
+            BufferedWriter arquivo = new BufferedWriter (new FileWriter(new File("..\\..\\..\\LogErro.txt"),true));
             arquivo.newLine();
             arquivo.write(s);
             arquivo.flush();
             arquivo.close();
 
-        } catch ( IOException e ) {  
+        } catch ( IOException e ) {
+            System.out.println(new File("..\\..\\..").getAbsolutePath());
             e.printStackTrace();
         }
     } 

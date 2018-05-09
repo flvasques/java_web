@@ -29,12 +29,18 @@ public class AlunoController {
    @Get
    @Path("/aluno/editar/{matricula}")
    public Aluno editar(int matricula){
-       return new Aluno();
+       return new Aluno(matricula);
    }
    @Post
    @Path("/aluno/salvar")
    public void salvar(Aluno aluno){
        aluno.salvar();
+       result.redirectTo(IndexController.class).index();
+   }
+   @Get
+   @Path("/aluno/apagar/{matricula}")
+   public void apagar(int matricula){
+       new Aluno(matricula).apagar();
        result.redirectTo(IndexController.class).index();
    }
 }

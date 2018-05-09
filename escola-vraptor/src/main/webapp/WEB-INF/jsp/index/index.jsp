@@ -16,7 +16,10 @@
                     <tr>
                         <td>${aluno.getMatricula()}</td>
                         <td>${aluno.getNome()}</td>
-                        <td><a href="${linkTo[AlunoController].editar(aluno.getMatricula())}" class="btn btn-warning">Editar</a></td>
+                        <td>
+                            <a href="${linkTo[AlunoController].editar(aluno.getMatricula())}" class="btn btn-warning">Editar</a>
+                            <a href="${linkTo[AlunoController].apagar(aluno.getMatricula())}" class="btn btn-danger">Apagar</a>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>

@@ -13,8 +13,8 @@ public class Conexao {
         String port = "5432";
         String dbname = "escola";
         String user = "postgres";
-        //String password = "a";
-        String password = "postgres";
+        String password = "a";
+        //String password = "postgres";
         String url = "jdbc:postgresql://"+host+":"+port+"/"+dbname;
         try {
             Class.forName("org.postgresql.Driver");
@@ -25,7 +25,7 @@ public class Conexao {
             Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Log.salvaLog("Falha na conexão " + Conexao.class.getName() + ": " + ex.toString());
-            Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Falha na conexão");
         }
         return null;
     } 

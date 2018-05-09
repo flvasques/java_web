@@ -31,7 +31,7 @@ public class AlunoDao implements IDAO<Aluno> {
             sqlPreparedStatement.setInt(1, id);
             ResultSet rs = sqlPreparedStatement.executeQuery();
             if (rs.next()) {
-                entidade.setMatricula(rs.getInt("id"));
+                entidade.setMatricula(rs.getInt("matricula"));
                 entidade.setNome(rs.getString("nome"));
             }
 
@@ -64,18 +64,19 @@ public class AlunoDao implements IDAO<Aluno> {
 
     @Override
     public void excluir(int id) {
-        String sql = "DELETE FROM aluno WHERE matricula = ?;";
+        String sql = "DELETE FROM estagio WHERE id_aluno = ?; DELETE FROM aluno WHERE matricula = ?;";
         try {
             Connection connection = new Conexao().getConexao();
             PreparedStatement preparedStatement;
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
+            preparedStatement.setInt(2, id);
             preparedStatement.executeUpdate();
             preparedStatement.close();
             connection.close();
         } catch (SQLException ex) {
             Log.salvaLog(AlunoDao.class.getName() + ": " + ex.toString());
-            Logger.getLogger(AlunoDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Falha ao excluir");
         }
     }
 
@@ -93,7 +94,7 @@ public class AlunoDao implements IDAO<Aluno> {
 
         } catch (SQLException ex) {
             Log.salvaLog(AlunoDao.class.getName() + ": " + ex.toString());
-            Logger.getLogger(AlunoDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Falha no update");
         }
     }
 
@@ -115,7 +116,7 @@ public class AlunoDao implements IDAO<Aluno> {
             }
         } catch (SQLException ex) {
             Log.salvaLog(AlunoDao.class.getName() + ": " + ex.toString());
-            Logger.getLogger(AlunoDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Falha ao listar");
         }
         return lista;
     }
