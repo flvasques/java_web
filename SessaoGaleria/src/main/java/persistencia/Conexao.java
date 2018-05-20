@@ -1,0 +1,32 @@
+
+package persistencia;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class Conexao {
+   public Connection getConexao(){
+        String host = "localhost";
+        String port = "5432";
+        String dbname = "galeria";
+        String user = "postgres";
+        String password = "a";
+        //String password = "postgres";
+        String url = "jdbc:postgresql://"+host+":"+port+"/"+dbname;
+        try {
+            Class.forName("org.postgresql.Driver");
+            return DriverManager.getConnection(url, user, password);
+        } catch (SQLException ex) {
+            Log.salvaLog("Falha na conexão " + Conexao.class.getName() + ": " + ex.toString());
+            System.out.println("Falha na conexão");
+            Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Log.salvaLog("Falha na conexão " + Conexao.class.getName() + ": " + ex.toString());
+            System.out.println("Falha na conexão");
+        }
+        return null;
+    } 
+}
