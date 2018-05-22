@@ -28,11 +28,11 @@ public class LoginController {
         this.result = result;
     }
     
-   @Path("/cadastro/login/casdastro")
+   @Path("/login/casdastro")
    public void cadastro(){ }
    
    @Post
-   @Path("/cadastro/login/casdastrar")
+   @Path("/login/casdastrar")
    public void casdastrar(Usuario usr){
     usr.salvar();
     result.redirectTo(IndexController.class).index();

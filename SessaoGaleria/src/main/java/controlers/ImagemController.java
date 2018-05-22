@@ -36,6 +36,7 @@ public class ImagemController {
                  try {   
                      img.getArquivo().writeTo(f);
                  } catch (IOException ex) {
+                     this.result.include("mensagem", ex.toString());
                      persistencia.Log.salvaLog(ImagemDAO.class.getName() + ": " + ex.toString());
                      Logger.getLogger(ImagemController.class.getName()).log(Level.SEVERE, null, ex);
                  }

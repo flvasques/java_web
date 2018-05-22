@@ -21,21 +21,21 @@
                 <tr>
                     <td>Login</td>
                     <td>
-                        <input type="hidden" class="form-control" name="usuario.id" value="0"/>
-                        <input type="text" class="form-control" name="usuario.login" validate="required" autofocus/>                        
+                        <input type="hidden" class="form-control" name="usr.id" value="0"/>
+                        <input type="text" class="form-control" name="usr.login" validate="required" autofocus/>                        
                     </td>
                 </tr>
                 <tr>
                     <td>Senha</td>
                     <td>
                         
-                        <input type="password" class="form-control" id="psswd" name="usuario.senha" validate="required"/>
+                        <input type="password" class="form-control" id="psswd" name="usr.senha" validate="required"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Repita a Senha</td>
                     <td>
-                        <input type="password" class="form-control" name=usuario.confirmacao" onblur="avaliar(this.value)" validate="required"/>
+                        <input type="password" class="form-control" name=usr.confirmacao" onblur="avaliar(this.value)" validate="required"/>
                     </td>
                 </tr>
             </table>

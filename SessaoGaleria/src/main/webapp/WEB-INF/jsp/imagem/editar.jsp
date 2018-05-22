@@ -23,8 +23,8 @@
                 <tr>
                     <td>Foto</td>
                     <td>
-                        <input type="hidden" class="form-control" name="imagem.uploader" value="0"/>
-                        <input type="file" class="form-control" name="usuario.imagem.arquivo" validate="required"/>                        
+                        <input type="hidden" class="form-control" name="img.uploader" value="1"/>
+                        <input type="file" class="form-control" name="img.arquivo" validate="required"/>                        
                     </td>
             </table>
             <br />
